@@ -1,0 +1,27 @@
+<X3D profile='Immersive' version='3.2' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation=' http://www.web3d.org/specifications/x3d-3.2.xsd '> 
+
+<Scene> 
+
+<Group> 
+<Viewpoint centerOfRotation='0 -1 0' description='Hello world!' position='0 -1 7' retainUserOffsets='false'/> 
+<Transform rotation='0 1 0 3'> 
+<Shape> 
+<Sphere/> 
+<Appearance> 
+<Material diffuseColor='0 0.5 1'/> 
+</Appearance> 
+</Shape> 
+</Transform> 
+<Transform translation='0 -2 0'> 
+<Shape> 
+<Text solid='false' string='"Hello" "world!"'> 
+<FontStyle justify='"MIDDLE" "MIDDLE"'/> 
+</Text> 
+<Appearance> 
+<Material diffuseColor='0.1 0.5 1'/> 
+</Appearance> 
+</Shape> 
+</Transform> 
+</Group> 
+</Scene> 
+</X3D>

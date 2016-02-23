@@ -1,0 +1,23 @@
+#VRML V2.0 utf8
+
+ Viewpoint { position 0 5 5 orientation -99 0 0 0.7 } 
+ 
+ Transform { children [ Shape { geometry Box { size 3 0.01 3 } appearance Appearance { material Material { diffuseColor 0.3 0.3 0.3 } } } 
+ 
+ DEF touch TouchSensor { enabled TRUE } ] } 
+ 
+ DEF transform1 Transform { translation -1.25 0.25 -1.25 children [ Shape { geometry Box { size 0.5 0.5 0.5 } appearance Appearance { material Material { diffuseColor 1 0 0 } } } ] } 
+ 
+ DEF script1 Script { 
+ eventIn SFVec3f move 
+ eventIn MFNode func1 
+ field SFNode myself USE script1 
+ #field SFString evin "func1" 
+ field SFNode trans USE transform1 
+ field MFString server_url ["http://localhost/vm/beta/3dtest/server.php?id=2"] 
+ url "javascript: 
+ function move(val) { Browser.createVrmlFromURL(server_url, myself, 'func1'); trans.set_translation = val; } 
+ function func1(val) { return true; } " 
+ } 
+ 
+ ROUTE touch.hitPoint_changed TO script1.move

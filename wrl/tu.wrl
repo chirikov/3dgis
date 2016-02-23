@@ -1,0 +1,30 @@
+#VRML V2.0 utf8
+
+DEF gr Group
+{
+	children
+	[
+		Transform
+		{
+			translation 1 1 1
+			children []
+		}
+		Transform
+		{
+			translation 2 2 2
+			children []
+		}
+	]
+}
+
+Script
+{
+	field SFNode gr USE gr
+	
+	url "javascript:
+	function initialize()
+	{
+		trace(gr.children[1].translation);
+	}
+	"
+}

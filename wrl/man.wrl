@@ -1,0 +1,89 @@
+#VRML V2.0 utf8
+
+PROTO Man
+[
+	field SFColor color 1 1 1
+	exposedField SFVec3f translation 0 0 0
+	exposedField SFRotation orientation 0 0 1 0
+]
+{
+	Transform
+	{
+		translation IS translation
+		rotation IS orientation
+		children
+		[
+			Transform
+			{
+				translation 0 0.45 0
+				children
+				[
+					Shape
+					{
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+						geometry Box
+						{
+							size 0.3 0.9 0.2
+						}
+					}
+				]
+			}
+			Transform
+			{
+				translation 0 1.35 0
+				children
+				[
+					Shape
+					{
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+						geometry Box
+						{
+							size 0.5 0.9 0.2
+						}
+					}
+				]
+			}
+			Transform
+			{
+				translation 0 1.95 0
+				children
+				[
+					Shape
+					{
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+						geometry Sphere
+						{
+							radius 0.15
+						}
+					}
+				]
+			}
+		]
+	}
+}
+
+
+Man
+{
+	color 1 0 0
+	orientation 0 100 0 1.5
+	translation 1 0 0
+}

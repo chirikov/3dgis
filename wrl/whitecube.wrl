@@ -1,0 +1,46 @@
+#VRML V2.0 utf8
+
+DEF g1 Group
+{
+
+}
+
+DEF time1 Group
+{
+
+}
+
+
+DEF pos1 Group
+{
+
+}
+
+DEF sc1 Script
+{
+	field SFNode time1 USE time1
+	field SFNode pos1 USE pos1
+	field SFNode g1 USE g1
+	
+	directOutput TRUE
+	
+	url "javascript:
+	function initialize()
+	{
+		var g = Browser.createVrmlFromString('Transform {translation 1 1 1 rotation 1 1 1 1 children [Shape {geometry Box {}}]}');
+		g1.children[g1.children.length] = g[0];
+		
+		var nd = new Date();
+		var tim = nd.getTime()/1000;
+		
+		var t = Browser.createVrmlFromString('TimeSensor {cycleInterval 2 startTime '+(tim+1)+' stopTime 0}');
+		time1.children[time1.children.length] = t[0];
+		
+		var p = Browser.createVrmlFromString('PositionInterpolator {key [0, 1] keyValue [1 1 1, 0 0 0]}');
+		pos1.children[pos1.children.length] = p[0];
+		
+		Browser.addRoute(time1.children[time1.children.length-1], 'fraction_changed', pos1.children[pos1.children.length-1], 'set_fraction');
+		Browser.addRoute(pos1.children[pos1.children.length-1], 'value_changed', g1.children[g1.children.length-1], 'set_translation');
+	}
+	"
+}

@@ -1,0 +1,158 @@
+PROTO Man
+[
+	field SFInt32 id 0
+	field SFColor color 1 1 1
+	field MFString name ""
+	exposedField SFVec3f translation 0 0.18 0
+	exposedField SFRotation orientation 0 0 1 0
+]
+{
+	Transform
+	{
+		translation IS translation
+		rotation IS orientation
+		children
+		[
+			Transform
+			{
+				translation 0 -0.1385 0
+				children
+				[
+					Shape
+					{
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+						geometry Box
+						{
+							size 0.03 0.083 0.02
+						}
+					}
+				]
+			}
+			Transform
+			{
+				translation 0 -0.056 0
+				children
+				[
+					Shape
+					{
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+						geometry Box
+						{
+							size 0.05 0.082 0.02
+						}
+					}
+				]
+			}
+			Transform
+			{
+				translation 0 0 0
+				children
+				[
+					Shape
+					{
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+						geometry Sphere
+						{
+							radius 0.015
+						}
+					}
+				]
+			}
+			Transform
+			{
+				translation 0 0.02 0.001
+				children
+				[
+					DEF Myfont FontStyle
+					{
+						family "Arial"
+						justify "MIDDLE"
+						size 0.05
+						language "ru"
+					}
+					Shape
+					{
+						geometry Text
+						{
+							string IS name
+							length 0.11
+							maxExtent 0.11
+							fontStyle USE Myfont
+						}
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+					}
+				]
+			}
+			Transform
+			{
+				translation 0 0.02 -0.001
+				rotation 0 1 0 3.14159
+				children
+				[
+					Shape
+					{
+						geometry Text
+						{
+							string IS name
+							length 0.11
+							maxExtent 0.11
+							fontStyle USE Myfont
+						}
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor IS color
+							}
+						}
+					}
+				]
+			}
+			Transform
+			{
+				translation 0 0.035 0
+				children
+				[
+					Shape
+					{
+						geometry Box
+						{
+							size 0.12 0.05 0.001
+						}
+						appearance Appearance
+						{
+							material Material
+							{
+								diffuseColor 0 0 0
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+}
